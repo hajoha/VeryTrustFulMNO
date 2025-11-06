@@ -105,7 +105,7 @@
 
 
         <service
-            android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.OpenMobileNetworkToolkit"
+            android:name="de.foo.bar.VeryTrustfulMNO.OpenMobileNetworkToolkit"
             android:enabled="true"
             android:exported="true"
             android:label="@string/service_name"
@@ -119,12 +119,12 @@
                 android:value="true" />
         </service>
         <service
-            android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.LoggingService"
+            android:name="de.foo.bar.VeryTrustfulMNO.LoggingService"
             android:foregroundServiceType="location" />
-        <service android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.Ping.PingService" />
+        <service android:name="de.foo.bar.VeryTrustfulMNO.Ping.PingService" />
 
         <service
-            android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.NotificationService"
+            android:name="de.foo.bar.VeryTrustfulMNO.NotificationService"
             android:foregroundServiceType="location" />
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
@@ -134,12 +134,12 @@
                 android:value="explanation_for_special_use" />
         </service>
         <service
-            android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.MQTT.MQTTService"
+            android:name="de.foo.bar.VeryTrustfulMNO.MQTT.MQTTService"
             android:foregroundServiceType="location"/>
 
 
         <receiver
-            android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.LoggingServiceOnBootReceiver"
+            android:name="de.foo.bar.VeryTrustfulMNO.LoggingServiceOnBootReceiver"
             android:exported="true"
             android:label="StartLoggingServiceAtBootReceiver">
             <intent-filter>
@@ -148,7 +148,7 @@
         </receiver>
 
         <activity
-            android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.MainActivity"
+            android:name="de.foo.bar.VeryTrustfulMNO.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.OpenMobileNetworkToolkit.NoActionBar">

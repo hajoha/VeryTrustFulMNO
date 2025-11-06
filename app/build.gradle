@@ -101,7 +101,7 @@ android {
         viewBinding true
         buildConfig = true
     }
-    namespace 'de.fraunhofer.fokus.OpenMobileNetworkToolkit'
+    namespace 'de.foo.bar.VeryTrustfulMNO'
     ndkVersion '25.2.9519653'
     lint {
         abortOnError false

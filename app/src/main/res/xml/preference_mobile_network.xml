@@ -10,7 +10,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fragment="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SettingPreferences.MobileNetworkSettingsFragment">
+    android:fragment="de.foo.bar.VeryTrustfulMNO.SettingPreferences.MobileNetworkSettingsFragment">
         <PreferenceCategory
             android:title="@string/radio_settings"
             app:iconSpaceReserved="false">
