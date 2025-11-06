@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_workProfileActivity"
             app:destination="@id/workProfileActivity" />
+        <action
+            android:id="@+id/action_HomeFragment_to_callFragment2"
+            app:destination="@id/callFragment" />
 
     </fragment>
 
@@ -197,4 +200,13 @@
         android:name="de.foo.bar.VeryTrustfulMNO.WorkProfile.WorkProfileActivity"
         android:label="setup_profile_fragment"
         tools:layout="@layout/setup_profile_fragment" />
+    <fragment
+        android:id="@+id/callFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.CallFragment"
+        android:label="fragment_call"
+        tools:layout="@layout/fragment_call" >
+        <action
+            android:id="@+id/action_callFragment_to_HomeFragment2"
+            app:destination="@id/HomeFragment" />
+    </fragment>
 </navigation>

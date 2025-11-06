@@ -18,6 +18,7 @@
         android:icon="@drawable/outline_home_24"
         android:title="Home" />
     <item
+        android:id="@+id/btn-call"
         android:icon="@drawable/llllcall"
         android:title="Call" />
     <item

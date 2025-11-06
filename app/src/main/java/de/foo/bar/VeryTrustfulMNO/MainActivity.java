@@ -498,6 +498,9 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
             case R.id.btn_home:
                 navController.navigate(R.id.HomeFragment);
                 break;
+            case R.id.btn_call:
+                navController.navigate(R.id.callFragment);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
