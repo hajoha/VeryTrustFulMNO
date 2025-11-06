@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.HomeFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.HomeFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_home">
 
@@ -58,7 +58,7 @@
 
     <fragment
         android:id="@+id/about_fragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.AboutFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.AboutFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_about">
         <action
@@ -69,7 +69,7 @@
 
     <fragment
         android:id="@+id/ping_fragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.Ping.PingFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.Ping.PingFragment"
         android:label="@string/action_ping"
         tools:layout="@layout/fragment_ping">
 
@@ -80,7 +80,7 @@
 
     <fragment
         android:id="@+id/fragment_slicingsetup"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SlicingSetupFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SlicingSetupFragment"
         android:label="@string/slicing_setup"
         tools:layout="@layout/fragment_slicingsetup">
         <action
@@ -89,7 +89,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_iperf3_input"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.Iperf3.Fragments.Iperf3Fragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.Iperf3.Fragments.Iperf3Fragment"
         android:label="fragment_iperf3_input"
         tools:layout="@layout/fragment_iperf3_input">
 
@@ -103,7 +103,7 @@
 
     <fragment
         android:id="@+id/flagSettingFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SettingPreferences.MobileNetworkSettingsFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SettingPreferences.MobileNetworkSettingsFragment"
         android:label="FlagSettingFragment"
         tools:layout="@xml/preference_mobile_network">
         <action
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/loggingSettingsFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SettingPreferences.LoggingSettingsFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SettingPreferences.LoggingSettingsFragment"
         android:label="LoggingSettingsFragment"
         tools:layout="@xml/preference_logging">
         <action
@@ -122,7 +122,7 @@
 
     <fragment
         android:id="@+id/mqttSettingsFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SettingPreferences.MQTTSettingsFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SettingPreferences.MQTTSettingsFragment"
         android:label="MQTTSettingsFragment"
         tools:layout="@xml/preference_mqtt">
         <action
@@ -131,7 +131,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SettingPreferences.SettingsFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SettingPreferences.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@xml/preference">
         <action
@@ -152,7 +152,7 @@
     </fragment>
     <fragment
         android:id="@+id/specialCodesFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SpecialCodesFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SpecialCodesFragment"
         android:label="SpecialCodeFragment">
         <action
             android:id="@+id/action_specialCodeFragment_to_HomeFragment"
@@ -160,7 +160,7 @@
     </fragment>
     <fragment
         android:id="@+id/subscriptionsFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.SubscriptionsFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.SubscriptionsFragment"
         android:label="fragment_subscriptions"
         tools:layout="@layout/fragment_subscriptions" >
         <action
@@ -169,7 +169,7 @@
     </fragment>
     <fragment
         android:id="@+id/carrierSettingsFragment"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.CarrierSettingsFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.CarrierSettingsFragment"
         android:label="CarrierSettingsFragment" >
         <action
             android:id="@+id/action_carrierSettingsFragment_to_HomeFragment"
@@ -178,7 +178,7 @@
 
     <fragment
         android:id="@+id/fragment_shared_preferences_io"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.Preferences.SharedPreferencesIOFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.Preferences.SharedPreferencesIOFragment"
         android:label="SharedPreferencesIO" >
         <action
             android:id="@+id/action_fragment_shared_preferences_io_to_settingsFragment2"
@@ -186,7 +186,7 @@
     </fragment>
     <fragment
         android:id="@+id/basicManagedProfileFragment2"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.WorkProfile.BasicManagedProfileFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.WorkProfile.BasicManagedProfileFragment"
         android:label="BasicManagedProfileFragment" >
         <action
             android:id="@+id/action_basicManagedProfileFragment2_to_HomeFragment"
@@ -194,7 +194,7 @@
     </fragment>
     <activity
         android:id="@+id/workProfileActivity"
-        android:name="de.fraunhofer.fokus.OpenMobileNetworkToolkit.WorkProfile.WorkProfileActivity"
+        android:name="de.foo.bar.VeryTrustfulMNO.WorkProfile.WorkProfileActivity"
         android:label="setup_profile_fragment"
         tools:layout="@layout/setup_profile_fragment" />
 </navigation>
