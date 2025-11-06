@@ -8,6 +8,7 @@
 
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="de.foo.bar.VeryTrustfulMNO.MainActivity">
     <item
@@ -16,6 +17,9 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/outline_home_24"
         android:title="Home" />
+    <item
+        android:icon="@drawable/llllcall"
+        android:title="Call" />
     <item
         android:id="@+id/iperf3"
         android:icon="@drawable/outline_speed_24"
