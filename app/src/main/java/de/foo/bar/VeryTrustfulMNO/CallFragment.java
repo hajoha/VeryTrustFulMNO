@@ -18,11 +18,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import android.media.MediaRecorder;
+import android.os.Environment;
+import java.io.IOException;
 
 public class CallFragment extends Fragment {
     public CallFragment() {
         super(R.layout.fragment_call);
     }
+
+    private MediaRecorder recorder;
+    private String filePath;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,9 +43,29 @@ public class CallFragment extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
+    private void requestMicPermission() {
+        if (androidx.core.content.ContextCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.RECORD_AUDIO
+        ) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+
+            androidx.activity.result.ActivityResultLauncher<String> micPermissionLauncher =
+                    registerForActivityResult(
+                            new androidx.activity.result.contract.ActivityResultContracts.RequestPermission(),
+                            isGranted -> {
+
+                            }
+                    );
+
+            micPermissionLauncher.launch(android.Manifest.permission.RECORD_AUDIO);
+        }
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        requestMicPermission();
 
         ImageView greenButton = view.findViewById(R.id.green_call_btn);
         ImageView redButton = view.findViewById(R.id.red_call_btn);
