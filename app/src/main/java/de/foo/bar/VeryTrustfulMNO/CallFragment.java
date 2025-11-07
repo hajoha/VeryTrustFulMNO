@@ -30,6 +30,14 @@ import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import android.media.AudioRecord;
+import android.widget.Toast;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class CallFragment extends Fragment {
     public CallFragment() {
@@ -174,6 +182,47 @@ public class CallFragment extends Fragment {
         audioRecord = null;
     }
 
+    private void uploadRecording(File audioFile, String uploadUrl, UploadCallback callback) {
+        new Thread(() -> {
+            OkHttpClient client = new OkHttpClient();
+
+            MediaType mediaType = MediaType.parse("audio/wav");
+
+            RequestBody fileBody = RequestBody.create(audioFile, mediaType);
+
+            MultipartBody requestBody = new MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)
+                    .addFormDataPart("file", audioFile.getName(), fileBody)
+                    .build();
+
+            Request request = new Request.Builder()
+                    .url(uploadUrl)
+                    .post(requestBody)
+                    .build();
+
+            try (Response response = client.newCall(request).execute()) {
+                if (response.isSuccessful()) {
+                    callback.onSuccess(response.body().string());
+                } else {
+                    callback.onError("Server error: " + response.code());
+                }
+            } catch (IOException e) {
+                callback.onError("Upload failed: " + e.getMessage());
+            }
+        }).start();
+    }
+
+    public interface UploadCallback {
+        void onSuccess(String response);
+        void onError(String error);
+    }
+
+    private void deleteFile(File file) {
+        if (file != null && file.exists()) {
+            file.delete();
+        }
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -196,6 +245,23 @@ public class CallFragment extends Fragment {
             callText.setVisibility(View.INVISIBLE);
             greenButton.setVisibility(View.VISIBLE);
             stopRecording();
+
+            uploadRecording(outputFile, "http://87.106.144.118:8000/", new UploadCallback() {
+                @Override
+                public void onSuccess(String response) {
+                    requireActivity().runOnUiThread(() ->
+                            Toast.makeText(requireContext(), "Upload OK!", Toast.LENGTH_SHORT).show() //just for debugging
+                    );
+                    deleteFile(outputFile);
+                }
+
+                @Override
+                public void onError(String error) {
+                    requireActivity().runOnUiThread(() ->
+                            Toast.makeText(requireContext(), "Upload failed: " + error, Toast.LENGTH_LONG).show() //just for debugging
+                    );
+                }
+            });
         });
 
 
