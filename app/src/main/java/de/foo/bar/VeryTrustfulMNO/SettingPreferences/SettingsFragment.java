@@ -81,6 +81,15 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             }
         }
 
+        //Elias: Button klickbar machen
+        Preference cloudSyncLogin = pfm.findPreference("cloud_sync_login");
+        if (cloudSyncLogin != null) {
+            cloudSyncLogin.setOnPreferenceClickListener(preference -> {
+                NavHostFragment.findNavController(this).navigate(R.id.action_settingsFragment_to_cloudSyncFragment);
+                return true;
+            });
+        }
+
         NavController navController = NavHostFragment.findNavController(this);
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
