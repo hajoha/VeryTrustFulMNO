@@ -12,6 +12,7 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
     <uses-permission
         android:name="android.permission.MODIFY_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
@@ -28,6 +29,7 @@
     <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
@@ -128,6 +130,15 @@
             android:name="de.foo.bar.VeryTrustfulMNO.NotificationService"
             android:foregroundServiceType="location" />
         <service
+            android:name="de.foo.bar.VeryTrustfulMNO.NotificationListener"
+            android:exported="true"
+            android:label="@string/service_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
             android:foregroundServiceType="specialUse">
             <property
@@ -152,7 +163,7 @@
             android:name="de.foo.bar.VeryTrustfulMNO.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/Theme.OpenMobileNetworkToolkit.NoActionBar">
+            android.theme="@style/Theme.OpenMobileNetworkToolkit.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

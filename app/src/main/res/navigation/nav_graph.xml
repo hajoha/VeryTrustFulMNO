@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_callFragment2"
             app:destination="@id/callFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_wifiScannerFragment"
+            app:destination="@id/wifiScannerFragment" />
 
     </fragment>
 
@@ -173,7 +176,7 @@
     <fragment
         android:id="@+id/carrierSettingsFragment"
         android:name="de.foo.bar.VeryTrustfulMNO.CarrierSettingsFragment"
-        android:label="CarrierSettingsFragment" >
+        android.label="CarrierSettingsFragment" >
         <action
             android:id="@+id/action_carrierSettingsFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
@@ -207,6 +210,15 @@
         tools:layout="@layout/fragment_call" >
         <action
             android:id="@+id/action_callFragment_to_HomeFragment2"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wifiScannerFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.WifiScanner.WifiScannerFragment"
+        android:label="WifiScannerFragment"
+        tools:layout="@layout/fragment_wifi_scanner">
+        <action
+            android:id="@+id/action_wifiScannerFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
 </navigation>

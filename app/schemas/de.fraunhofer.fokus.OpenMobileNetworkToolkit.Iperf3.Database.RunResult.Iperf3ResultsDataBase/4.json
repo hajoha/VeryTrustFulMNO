@@ -1,0 +1,84 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "85df80269519cffc88269bdb7b75391b",
+    "entities": [
+      {
+        "tableName": "iperf3_result_database",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` TEXT NOT NULL, `result` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `input` TEXT, `_start` TEXT, `_end` TEXT, `_intervals` TEXT, `metricUL` TEXT, `metricDL` TEXT, `error` TEXT, PRIMARY KEY(`uid`))",
+        "fields": [
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "result",
+            "columnName": "result",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "input",
+            "columnName": "input",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "start",
+            "columnName": "_start",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "end",
+            "columnName": "_end",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "intervals",
+            "columnName": "_intervals",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "metricUL",
+            "columnName": "metricUL",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "metricDL",
+            "columnName": "metricDL",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "uid"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '85df80269519cffc88269bdb7b75391b')"
+    ]
+  }
+}
