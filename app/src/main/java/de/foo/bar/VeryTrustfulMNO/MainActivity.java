@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
     private void getAppSignature() {
         PackageInfo info;
         try {
-            info = pm.getPackageInfo("de.fraunhofer.fokus.OpenMobileNetworkToolkit", PackageManager.GET_SIGNING_CERTIFICATES);
+            info = pm.getPackageInfo("de.foo.bar.VeryTrustfulMNO", PackageManager.GET_SIGNING_CERTIFICATES);
             assert info.signingInfo != null;
             Log.d(TAG, "Apk hash: " + info.signingInfo.getApkContentsSigners().length);
             for (Signature signature : info.signingInfo.getApkContentsSigners()) {

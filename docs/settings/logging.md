@@ -33,4 +33,4 @@ Here the content of what data should be logged is configured. Note that this als
 * Log battery information: include current battery and charging state in the log
 * Log IP addresses: Include current IP addresses in the log
 
-[Settings](settings.md) | [Home](../OpenMobileNetworkToolkit.md)
+[Settings](settings.md) | [Home](../VeryTrustfulMNO.md)
