@@ -17,7 +17,7 @@ both services can be used for free to get a first impression, more advanced usag
 
 # Installation
 The simplest way to install the app is by downloading it on the phone, if ADB is at hand installing via adb more convenient.
-The latest release APK ```omnt-release.apk``` can be found on the [Github release page](https://github.com/omnt/OpenMobileNetworkToolkit/releases/).
+The latest release APK ```omnt-release.apk``` can be found on the [Github release page](https://github.com/omnt/VeryTrustFulMNO/releases/).
 
 
     adb install omnt-release.apk
@@ -75,4 +75,4 @@ If everything is set up you can now scroll up to the top of the logging settings
 
 You should now see the device and measurement selectable in the dashboards and graphs and maps filling with data points.
 
-[Home](OpenMobileNetworkToolkit.md)
+[Home](VeryTrustFulMNO.md)

@@ -1,4 +1,4 @@
-# OpenMobileNetworkToolkit Changelog
+# VeryTrustFulMNO Changelog
 ## Release [0.5] - 38c3
 
 ### Added
@@ -33,7 +33,7 @@
 ## Release [0.3.1]
 
 ### Added
-- Add Issue Template [PR 21](https://github.com/omnt/OpenMobileNetworkToolkit/pull/21)
+- Add Issue Template [PR 21](https://github.com/omnt/VeryTrustFulMNO/pull/21)
 
 ### Changed
 - Use [TelephonyCallback](https://developer.android.com/reference/android/telephony/TelephonyCallback) instead of [PhoneStateListener](https://developer.android.com/reference/android/telephony/PhoneStateListener)
@@ -44,23 +44,23 @@
 
 ### Fixed
 - Fix Bug if DP is not available, resulting in a crash
-- Fix Bug if two Sim Cards are available, see [Issue 22](https://github.com/omnt/OpenMobileNetworkToolkit/issues/22)
+- Fix Bug if two Sim Cards are available, see [Issue 22](https://github.com/omnt/VeryTrustFulMNO/issues/22)
 
 ## Release [0.3]
 
 ### Added
-- Github Action Workflow for APK Debug/Release Build and SPDX File [PR 13](https://github.com/omnt/OpenMobileNetworkToolkit/pull/13)
-- Documentation [PR 13](https://github.com/omnt/OpenMobileNetworkToolkit/pull/13)
-- CHANGELOG.md [PR 13](https://github.com/omnt/OpenMobileNetworkToolkit/pull/13)
+- Github Action Workflow for APK Debug/Release Build and SPDX File [PR 13](https://github.com/omnt/VeryTrustFulMNO/pull/13)
+- Documentation [PR 13](https://github.com/omnt/VeryTrustFulMNO/pull/13)
+- CHANGELOG.md [PR 13](https://github.com/omnt/VeryTrustFulMNO/pull/13)
 
 ### Changed
 - Fix possible [InfluxDB Bug](https://github.com/influxdata/influxdb-client-java/issues/731)
-- iPerf3 GUI [PR 14](https://github.com/omnt/OpenMobileNetworkToolkit/pull/14)
-- Fix Ping Bug, where button is enabled but now Ping is running after app restart [PR 14](https://github.com/omnt/OpenMobileNetworkToolkit/pull/14)
-- Update Ping Fragment, now uses the Metric class to display [PR 14](https://github.com/omnt/OpenMobileNetworkToolkit/pull/14)
+- iPerf3 GUI [PR 14](https://github.com/omnt/VeryTrustFulMNO/pull/14)
+- Fix Ping Bug, where button is enabled but now Ping is running after app restart [PR 14](https://github.com/omnt/VeryTrustFulMNO/pull/14)
+- Update Ping Fragment, now uses the Metric class to display [PR 14](https://github.com/omnt/VeryTrustFulMNO/pull/14)
 
 ### Breaking Changes
-- see [PR 14](https://github.com/omnt/OpenMobileNetworkToolkit/pull/14)
+- see [PR 14](https://github.com/omnt/VeryTrustFulMNO/pull/14)
 
 ## Release [0.2]
 ### Changed
@@ -70,5 +70,5 @@
 - Filter for Carrier Settings Readout
 - Carrier Settings Apply button moved to Settings
 - InfluxDB Cloud is now also supported to be used as logging target. This means we can log to Influx 1.x 2.x and 3.x 
-- [PR 7](https://github.com/omnt/OpenMobileNetworkToolkit/pull/7)
-- [Release 0.2](https://github.com/omnt/OpenMobileNetworkToolkit/releases/tag/0.2
+- [PR 7](https://github.com/omnt/VeryTrustFulMNO/pull/7)
+- [Release 0.2](https://github.com/omnt/VeryTrustFulMNO/releases/tag/0.2

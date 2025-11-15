@@ -1,4 +1,4 @@
-# OpenMobileNetworkToolkit User Guide
+# VeryTrustFulMNO User Guide
 
 * [Quick Start Guide](./quick-start.md)
 * [Installation](installation.md)

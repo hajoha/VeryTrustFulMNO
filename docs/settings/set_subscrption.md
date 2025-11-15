@@ -6,4 +6,4 @@ By setting a different subscription e.g. a SIM card with carrier permissions ena
 mobile network. Some feature will be disabled / not work for subscription without the permissions.
 
 
-[Settings](settings.md) | [Home](../OpenMobileNetworkToolkit.md)
+[Settings](settings.md) | [Home](../VeryTrustFulMNO.md)

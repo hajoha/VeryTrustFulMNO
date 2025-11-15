@@ -2,4 +2,4 @@
 
 This function is still under development and requires support from the core network.  
 
-[Home](OpenMobileNetworkToolkit.md)
+[Home](VeryTrustFulMNO.md)

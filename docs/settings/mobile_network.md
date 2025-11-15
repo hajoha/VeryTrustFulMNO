@@ -17,4 +17,4 @@ This section reflects the settings desired to be applied and not necessary the c
 The different settings are grouped by the android API level on which they were introduced and will be disabled if the phone runs an older version.
 Details on the different settings can be found [here](https://developer.android.com/reference/android/telephony/CarrierConfigManager)
 
-[Settings](settings.md) | [Home](../OpenMobileNetworkToolkit.md)
+[Settings](settings.md) | [Home](../VeryTrustFulMNO.md)

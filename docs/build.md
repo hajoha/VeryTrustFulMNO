@@ -1,3 +1,3 @@
 # Building OMNT
 
-[Home](OpenMobileNetworkToolkit.md)
+[Home](VeryTrustFulMNO.md)

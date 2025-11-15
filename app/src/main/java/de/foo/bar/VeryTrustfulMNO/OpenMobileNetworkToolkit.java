@@ -22,10 +22,10 @@ import java.util.HashSet;
 import de.foo.bar.VeryTrustfulMNO.Preferences.SPType;
 import de.foo.bar.VeryTrustfulMNO.Preferences.SharedPreferencesGrouper;
 
-public class OpenMobileNetworkToolkit extends CarrierService {
-    private static final String TAG = "OpenMobileNetworkToolkit";
-    public OpenMobileNetworkToolkit() {
-        Log.d(TAG, "OpenMobileNetworkToolkit Carrier Config Service created");
+public class VeryTrustFulMNO extends CarrierService {
+    private static final String TAG = "VeryTrustFulMNO";
+    public VeryTrustFulMNO() {
+        Log.d(TAG, "VeryTrustFulMNO Carrier Config Service created");
     }
 
     // we keep this for older SDK version
