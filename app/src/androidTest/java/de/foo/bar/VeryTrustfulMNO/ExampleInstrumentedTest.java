@@ -29,6 +29,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("de.fraunhofer.fokus.VeryTrustFulMNOcarriersettings", appContext.getPackageName());
+        assertEquals("de.foo.bar.VeryTrustfulMNOcarriersettings", appContext.getPackageName());
     }
 }

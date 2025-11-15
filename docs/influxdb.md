@@ -4,4 +4,4 @@ This view allows the configuration of a locally (on the phone) running InfluxDB 
 
 Configuration of logging and remote InfluxDB hosts can be found in [Settings -> Logging](settings/logging.md)
 
-[Home](VeryTrustFulMNO.md)
+[Home](VeryTrustfulMNO.md)

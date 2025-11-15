@@ -8,11 +8,11 @@
 
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.VeryTrustFulMNO" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.VeryTrustfulMNO" parent="Theme.Material3.DayNight.NoActionBar">
 
     </style>
 
-    <style name="Theme.VeryTrustFulMNO.NoActionBar">
+    <style name="Theme.VeryTrustfulMNO.NoActionBar">
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
     </style>

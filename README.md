@@ -1,4 +1,4 @@
-# VeryTrustFulMNO
+# VeryTrustfulMNO
 
 OMNT provides tooling to researchers and developers of mobile communication networks like 3GPP 2/3/4/5G.
 The main objective of OMNT is the collection of measurement data on the mobile network like RSSI, RSRQ, RSRP, GNSS position, Cell ID, PLNM and much more.
@@ -13,7 +13,7 @@ The current state of the app can be described as "research software", it fits ou
 Use the app at your own risk. If you find it useful for your research, please cite the app in publications.
 
 * [Quick Start HowTo](docs/quick-start.md)
-* [User Manual](docs/VeryTrustFulMNO.md)
+* [User Manual](docs/VeryTrustfulMNO.md)
 * [Signing HowTo](docs/signing.md)
 
 ## Requirements

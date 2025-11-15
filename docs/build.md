@@ -1,3 +1,3 @@
 # Building OMNT
 
-[Home](VeryTrustFulMNO.md)
+[Home](VeryTrustfulMNO.md)

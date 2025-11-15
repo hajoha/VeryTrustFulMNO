@@ -19,15 +19,15 @@
     <string name="loggin_notifaction">Logging Service</string>
     <string name="appinfo">This app is provided by NGNI a department of Fraunhofer FOKUS. \n\nhttps://www.fokus.fraunhofer.de/go/ngni \n\nThis software is licensed under BSD 3-Clause Clear License https://spdx.org/licenses/BSD-3-Clause-Clear.html \n\nAuthors: \n\nPeter Hasse \nMohsin Nisar \nJohann Hackler</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">VeryTrustFulMNO</string>
+    <string name="first_fragment_label">VeryTrustfulMNO</string>
     <string name="second_fragment_label">about</string>
     <string name="about">About</string>
     <string name="service_name">OMNT</string>
-    <string name="app_description">OMNT VeryTrustFulMNO, the swiss army knife for network researcher</string>
+    <string name="app_description">OMNT VeryTrustfulMNO, the swiss army knife for network researcher</string>
     <string name="device_admin_description">I need your permission</string>
     <string name="slicing_setup">Slicing</string>
     <string name="channel_name">OMNT_Notification</string>
-    <string name="channel_description">Notification channel for VeryTrustFulMNO</string>
+    <string name="channel_description">Notification channel for VeryTrustfulMNO</string>
 
     <!-- Application Preferences -->
 

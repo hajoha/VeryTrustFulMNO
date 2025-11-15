@@ -1,3 +1,3 @@
 # Installation
 
-[Home](VeryTrustFulMNO.md)
+[Home](VeryTrustfulMNO.md)

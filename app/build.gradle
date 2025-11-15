@@ -57,7 +57,7 @@ android {
     compileSdk 36
 
     defaultConfig {
-        applicationId "de.fraunhofer.fokus.VeryTrustFulMNO"
+        applicationId "de.foo.bar.VeryTrustfulMNO"
         minSdk 31
         targetSdk 36
         versionCode 6
@@ -113,12 +113,12 @@ spdxSbom {
         register("release") {
             configurations = ['releaseRuntimeClasspath']
             scm {
-                uri.set("https://github.com/omnt/VeryTrustFulMNO")
+                uri.set("https://github.com/omnt/VeryTrustfulMNO")
                 revision.set("0.6")
             }
             document {
-                name.set("VeryTrustFulMNO")
-                namespace.set("de.fraunhofer.fokus.VeryTrustFulMNO")
+                name.set("VeryTrustfulMNO")
+                namespace.set("de.foo.bar.VeryTrustfulMNO")
                 creator.set("Person: NGNI")
                 packageSupplier.set("Organization: Fraunhofer FOKUS NGNI")
             }

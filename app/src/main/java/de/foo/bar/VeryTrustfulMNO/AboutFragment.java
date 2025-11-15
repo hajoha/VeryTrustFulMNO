@@ -47,7 +47,7 @@ public class AboutFragment extends Fragment {
         about_text.append(getString(R.string.appinfo));
         about_text.append("\n\n");
         about_text.append("https://omnt.app\n");
-        about_text.append("https://github.com/omnt/VeryTrustFulMNO");
+        about_text.append("https://github.com/omnt/VeryTrustfulMNO");
         about_text.append("\n\nThird party software used in this app: \n \n");
         about_text.append(
             "The InfluxDB 2.x JVM Based Client is released under the MIT License. \nhttps://github.com/influxdata/influxdb-client-java");

@@ -36,4 +36,4 @@ This card lists all network interfaces of the UE and there current IP addresses.
 ## Location
 This card shows the current location information provided to OMNT by Android.
 
-[Home](VeryTrustFulMNO.md)
+[Home](VeryTrustfulMNO.md)
