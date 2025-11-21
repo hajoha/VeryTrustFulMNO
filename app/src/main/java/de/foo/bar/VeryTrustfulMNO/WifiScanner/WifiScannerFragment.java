@@ -41,7 +41,6 @@ public class WifiScannerFragment extends Fragment {
     private static final String TAG = "WifiScannerFragment";
     private static final String FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS";
     private static final String UPLOAD_URL = "https://vwhosnragmnkhkgjogoq.supabase.co/functions/v1/upload-image";
-
     private Button scanWifiButton;
 
     private final ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
