@@ -152,6 +152,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_mqttSettingsFragment2"
             app:destination="@id/mqttSettingsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_cloudSyncFragment"
+            app:destination="@id/loginEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/specialCodesFragment"
@@ -209,4 +212,33 @@
             android:id="@+id/action_callFragment_to_HomeFragment2"
             app:destination="@id/HomeFragment" />
     </fragment>
+
+
+<fragment
+android:id="@+id/loginEmailFragment"
+android:name="de.foo.bar.VeryTrustfulMNO.ui.sync.LoginEmailFragment"
+android:label="Cloud Sync Login"
+tools:layout="@layout/fragment_login_email">
+    <action
+        android:id="@+id/action_loginEmailFragment_to_loginPasswordFragment"
+        app:destination="@id/loginPasswordFragment">
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </action>
+
+
+</fragment>
+
+<fragment
+android:id="@+id/loginPasswordFragment"
+android:name="de.foo.bar.VeryTrustfulMNO.ui.sync.LoginPasswordFragment"
+android:label="Passwort eingeben"
+tools:layout="@layout/fragment_login_password" >
+
+<argument
+    android:name="email"
+    app:argType="string" />
+</fragment>
+
 </navigation>
