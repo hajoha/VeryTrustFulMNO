@@ -22,9 +22,9 @@
         android:icon="@drawable/llllcall"
         android:title="Call" />
     <item
-        android:id="@+id/wifi_scanner"
+        android:id="@+id/add_profile_info"
         android:icon="@drawable/baseline_cell_tower_24"
-        android:title="Wifi Scanner" />
+        android:title="Add Profile Info" />
     <item
         android:id="@+id/iperf3"
         android:icon="@drawable/outline_speed_24"

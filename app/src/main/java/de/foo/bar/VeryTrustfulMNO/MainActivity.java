@@ -478,8 +478,8 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
             case R.id.slicingSetup:
                 navController.navigate(R.id.fragment_slicingsetup);
                 break;
-            case R.id.wifi_scanner:
-                navController.navigate(R.id.wifiScannerFragment);
+            case R.id.add_profile_info:
+                navController.navigate(R.id.addProfileInfoFragment);
                 break;
             case R.id.iperf3:
                 navController.navigate(R.id.fragment_iperf3_input);

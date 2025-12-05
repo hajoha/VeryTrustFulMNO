@@ -10,7 +10,7 @@
         android:id="@+id/scan_wifi_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan Wifi Router to improve Speed"
+        android:text="Create Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

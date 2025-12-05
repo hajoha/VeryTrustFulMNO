@@ -5,12 +5,16 @@ import android.content.ContentValues;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -34,12 +38,16 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class WifiScannerFragment extends Fragment {
+public class AddProfileInfoFragment extends Fragment {
 
-    private static final String TAG = "WifiScannerFragment";
+    private static final String TAG = "AddProfileInfoFragment";
     private static final String UPLOAD_URL = "https://vwhosnragmnkhkgjogoq.supabase.co/functions/v1/upload-image";
 
-    private Button scanWifiButton;
+    private Button takePhotoButton;
+    private Button saveProfileButton;
+    private EditText firstNameField;
+    private EditText lastNameField;
+    private ProgressBar progressBar;
     private Uri imageUri;
 
     // Launcher for taking a picture using the native camera app
@@ -49,14 +57,18 @@ public class WifiScannerFragment extends Fragment {
                 if (isSuccess) {
                     Log.d(TAG, "Photo taken successfully. URI: " + imageUri);
                     File file = getFileFromUri(imageUri);
+                    String firstName = firstNameField.getText().toString();
+                    String lastName = lastNameField.getText().toString();
                     if (file != null) {
-                        uploadImage(file, new UploadCallback() {
+                        uploadImage(file, firstName, lastName, new UploadCallback() {
                             @Override
                             public void onSuccess(String response) {
                                 if (getActivity() != null) {
-                                    getActivity().runOnUiThread(() ->
-                                            Toast.makeText(requireContext(), "Upload OK!", Toast.LENGTH_SHORT).show()
-                                    );
+                                    getActivity().runOnUiThread(() -> {
+                                        Toast.makeText(requireContext(), "Upload OK!", Toast.LENGTH_SHORT).show();
+                                        firstNameField.setText("");
+                                        lastNameField.setText("");
+                                    });
                                 }
                                 cleanup(file, imageUri);
                             }
@@ -64,9 +76,11 @@ public class WifiScannerFragment extends Fragment {
                             @Override
                             public void onError(String error) {
                                 if (getActivity() != null) {
-                                    getActivity().runOnUiThread(() ->
-                                            Toast.makeText(requireContext(), "Upload failed: " + error, Toast.LENGTH_LONG).show()
-                                    );
+                                    getActivity().runOnUiThread(() -> {
+                                        Toast.makeText(requireContext(), "Upload failed: " + error, Toast.LENGTH_LONG).show();
+                                        firstNameField.setText("");
+                                        lastNameField.setText("");
+                                    });
                                 }
                                 cleanup(file, imageUri);
                             }
@@ -88,27 +102,49 @@ public class WifiScannerFragment extends Fragment {
                 }
             });
 
-    public WifiScannerFragment() {
+    public AddProfileInfoFragment() {
         // Required empty public constructor
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_wifi_scanner, container, false);
+        return inflater.inflate(R.layout.fragment_add_profile_info, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        scanWifiButton = view.findViewById(R.id.scan_wifi_button);
+        takePhotoButton = view.findViewById(R.id.take_photo_button);
+        saveProfileButton = view.findViewById(R.id.save_profile_button);
+        firstNameField = view.findViewById(R.id.first_name);
+        lastNameField = view.findViewById(R.id.last_name);
+        progressBar = view.findViewById(R.id.progress_bar);
 
-        scanWifiButton.setOnClickListener(v -> {
+        takePhotoButton.setOnClickListener(v -> {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 launchCamera();
             } else {
                 requestPermissionLauncher.launch(Manifest.permission.CAMERA);
             }
+        });
+
+        saveProfileButton.setOnClickListener(v -> {
+            String firstName = firstNameField.getText().toString();
+            String lastName = lastNameField.getText().toString();
+
+            if (firstName.isEmpty() || lastName.isEmpty()) {
+                Toast.makeText(requireContext(), "Please fill in both first and last name.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            progressBar.setVisibility(View.VISIBLE);
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(requireContext(), "Profile changed", Toast.LENGTH_SHORT).show();
+                firstNameField.setText("");
+                lastNameField.setText("");
+            }, 2000); // 2 seconds delay
         });
     }
 
@@ -146,16 +182,16 @@ public class WifiScannerFragment extends Fragment {
     }
 
 
-    private void uploadImage(File imageFile, UploadCallback callback) {
+    private void uploadImage(File imageFile, String firstName, String lastName, UploadCallback callback) {
         new Thread(() -> {
             String supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3aG9zbnJhZ21ua2hrZ2pvZ29xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMxMzU0MDgsImV4cCI6MjA3ODcxMTQwOH0.BlYUZDgsVbmGhRFzVK4orcHlutFrdk-bPY0A81V719o";
             OkHttpClient client = new OkHttpClient();
-            MediaType mediaType = MediaType.parse("image/jpeg");
-            RequestBody fileBody = RequestBody.create(imageFile, mediaType);
 
-            MultipartBody requestBody = new MultipartBody.Builder()
+            RequestBody requestBody = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("file", imageFile.getName(), fileBody)
+                    .addFormDataPart("file", imageFile.getName(), RequestBody.create(imageFile, MediaType.parse("image/jpeg")))
+                    .addFormDataPart("firstName", firstName)
+                    .addFormDataPart("lastName", lastName)
                     .build();
 
             Request request = new Request.Builder()
