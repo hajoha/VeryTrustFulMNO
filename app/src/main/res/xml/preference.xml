@@ -79,6 +79,13 @@
         app:key="shared_preferences_io"
         app:title="Config" />
 
+        //Elias: Add button in Settings
+        <Preference
+            android:icon="@drawable/baseline_cloud_upload_24"
+            app:key="cloud_sync_login"
+            app:title="Google Cloud Sync" />
+
+
     </PreferenceCategory>
 
 </PreferenceScreen>
