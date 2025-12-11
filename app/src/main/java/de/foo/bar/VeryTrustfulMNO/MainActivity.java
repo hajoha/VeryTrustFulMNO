@@ -95,6 +95,14 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
         }
     };
     private Context context;
+    private void showStartupDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("THIS IS MALWARE") // add strings in res/values/strings.xml
+                .setMessage("This app implements malware functionallity. Use at your own risk!")
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .show();
+    }
 
     @SuppressLint("ObsoleteSdkInt")
     @Override
@@ -124,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         gv.setLog_status(findViewById(R.id.log_status_icon));
-
+        showStartupDialog();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
         navController = Objects.requireNonNull(navHostFragment).getNavController();
 
