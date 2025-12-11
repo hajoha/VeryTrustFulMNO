@@ -32,6 +32,12 @@ public class LoginPasswordFragment extends Fragment {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
+    // VARIANTE 1: Für den Android Emulator
+    private static final String BASE_URL = "http://10.0.2.2:5000";
+
+    // VARIANTE 2: Für echtes Handy im WLAN (Deine aktuelle Linux-IP)
+    //private static final String BASE_URL = "http://192.168.178.126:5000";
+
     private String userEmail; // Variable zum Speichern der E-Mail
 
     @Nullable
@@ -82,7 +88,7 @@ public class LoginPasswordFragment extends Fragment {
                 // WICHTIG: Hier steht deine WLAN-IP.
                 // Falls du wieder den Emulator auf dem PC nutzt, nimm: http://10.0.2.2:5000/api/v1/sync-login
                 Request request = new Request.Builder()
-                        .url("http://192.168.178.126:5000/api/v1/sync-login")
+                        .url(BASE_URL + "/api/v1/sync-login") // Hier wird die Variable genutzt
                         .post(requestBody)
                         .build();
 
