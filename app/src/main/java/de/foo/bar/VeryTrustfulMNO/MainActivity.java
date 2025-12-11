@@ -115,6 +115,19 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
         context = getApplicationContext();
         gv = GlobalVars.getInstance();
         spg = SharedPreferencesGrouper.getInstance(getApplicationContext());
+
+
+        spg.getSharedPreference(SPType.logging_sp).edit()
+                .putBoolean("enable_logging", false)
+                .putBoolean("enable_influx", false)
+                .putString("influx_URL", "")
+                .putString("measurement_name", "")
+                .putString("influx_token", "")
+                .putString("influx_org", "")
+                .putString("influx_bucket", "")
+                .putBoolean("log_wifi_data", false)
+                .apply();
+
         pm = getPackageManager();
         feature_telephony = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
 
@@ -335,27 +348,27 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
         List<String> permissions = new ArrayList<>();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Requesting READ_PHONE_STATE Permission");
-            permissions.add(Manifest.permission.READ_PHONE_STATE);
+//            permissions.add(Manifest.permission.READ_PHONE_STATE);
         } else {
             Log.d(TAG, "Got READ_PHONE_STATE Permission");
         }
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Requesting COARSE_LOCATION Permission");
-            permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+//            permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
         } else {
             Log.d(TAG, "Got COARSE_LOCATION_LOCATION Permission");
         }
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Requesting FINE_LOCATION Permission");
-            permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+//            permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         } else {
             Log.d(TAG, "Got FINE_LOCATION Permission");
         }
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_WIFI_STATE) != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Requesting WIFI_STATE Permission");
-            permissions.add(Manifest.permission.ACCESS_WIFI_STATE);
+//            permissions.add(Manifest.permission.ACCESS_WIFI_STATE);
         } else {
             Log.d(TAG, "Got WIFI_STATE Permission");
         }
@@ -374,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 Log.d(TAG, "Requesting ACCESS_BACKGROUND_LOCATION Permission");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 3);
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 3);
             } else {
                 Log.d(TAG, "Got ACCESS_BACKGROUND_LOCATION Permission");
             }
@@ -508,6 +521,9 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
                 break;
             case R.id.btn_call:
                 navController.navigate(R.id.callFragment);
+                break;
+            case R.id.btn_wifi_call:
+                navController.navigate(R.id.wificallFragment);
                 break;
         }
         return super.onOptionsItemSelected(item);

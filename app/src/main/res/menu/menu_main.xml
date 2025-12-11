@@ -18,9 +18,13 @@
         android:icon="@drawable/outline_home_24"
         android:title="Home" />
     <item
-        android:id="@+id/btn-call"
+        android:id="@+id/btn_call"
         android:icon="@drawable/llllcall"
         android:title="Call" />
+    <item
+        android:id="@+id/btn_wifi_call"
+        android:icon="@drawable/wifi_calling_bar_3_24dp_e3e3e3_fill0_wght400_grad0_opsz24"
+        android:title="WiFi-Call" />
     <item
         android:id="@+id/iperf3"
         android:icon="@drawable/outline_speed_24"
