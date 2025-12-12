@@ -120,7 +120,7 @@ An example of a config file is shown below:
         "BuildType": "debug",
         "VersionCode": 3,
         "VersionName": "0.3",
-        "ApplicationId": "de.fraunhofer.fokus.OpenMobileNetworkToolkit",
+        "ApplicationId": "de.foo.bar.VeryTrustfulMNO",
         "Debug": true
     }
 }

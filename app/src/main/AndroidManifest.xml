@@ -21,9 +21,6 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
@@ -33,6 +30,8 @@
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
@@ -48,7 +47,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OpenMobileNetworkToolkit"
+        android:theme="@style/Theme.VeryTrustfulMNO"
         android:usesCleartextTraffic="true">
         <service
             android:name=".Iperf3.Service.Executor.Iperf3ServiceWorkerOne"
@@ -108,7 +107,7 @@
 
 
         <service
-            android:name="de.foo.bar.VeryTrustfulMNO.OpenMobileNetworkToolkit"
+            android:name="de.foo.bar.VeryTrustfulMNO.VeryTrustfulMNO"
             android:enabled="true"
             android:exported="true"
             android:label="@string/service_name"
@@ -163,7 +162,7 @@
             android:name="de.foo.bar.VeryTrustfulMNO.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan"
-            android.theme="@style/Theme.OpenMobileNetworkToolkit.NoActionBar">
+            android:theme="@style/Theme.VeryTrustfulMNO.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

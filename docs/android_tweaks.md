@@ -9,4 +9,4 @@ The following settings can be found in the android developer settings menu. On V
 
 Depending on your phone, there might be more useful options (or less)
 
-[Home](OpenMobileNetworkToolkit.md)
+[Home](VeryTrustfulMNO.md)

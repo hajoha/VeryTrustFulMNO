@@ -155,6 +155,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_mqttSettingsFragment2"
             app:destination="@id/mqttSettingsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_cloudSyncFragment"
+            app:destination="@id/loginEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/specialCodesFragment"

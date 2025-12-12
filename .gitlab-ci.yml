@@ -90,7 +90,7 @@ assembleDebug:
   interruptible: true
   stage: build
   script:
-    - echo $KEYSTORE | base64 -d > '/builds/ngni/openmobilenetworktoolkit/OpenMobileNetworkToolkit/app/OpenMobileNetworkToolkit-key.jks'
+    - echo $KEYSTORE | base64 -d > '/builds/ngni/VeryTrustfulMNO/VeryTrustfulMNO/app/VeryTrustfulMNO-key.jks'
     - ./gradlew assembleDebug
   artifacts:
     paths:
@@ -106,7 +106,7 @@ debugTests:
 assembleRelease:
   variables:
     VERSION: "0.1"
-    PACKAGENAME: "OpenMobileNetworkToolkit.${CI_COMMIT_REF_SLUG}"
+    PACKAGENAME: "VeryTrustfulMNO.${CI_COMMIT_REF_SLUG}"
   stage: release
   script:
   - echo $KEYSTORE | base64 -d > my.keystore
@@ -115,7 +115,7 @@ assembleRelease:
     -Pandroid.injected.signing.store.password=$KEYSTORE_PW
     -Pandroid.injected.signing.key.alias=$KEY_ALIAS
     -Pandroid.injected.signing.key.password=$KEY_PW
-  - 'curl --silent --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file app/build/outputs/apk/release/app-release.apk "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGENAME}/${VERSION}/OpenMobileNetworkToolkit.apk"'
+  - 'curl --silent --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file app/build/outputs/apk/release/app-release.apk "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGENAME}/${VERSION}/VeryTrustfulMNO.apk"'
   artifacts:
     paths:
     - app/build/outputs/apk/release

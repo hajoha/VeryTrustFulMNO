@@ -10,6 +10,7 @@ package de.foo.bar.VeryTrustfulMNO.DataProvider;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -103,6 +104,7 @@ public class DataProvider extends TelephonyCallback implements LocationListener,
     private ArrayList<CellInformation> ssi = new ArrayList<>();
     private WifiInformation wi = null;
     private LocationManager lm;
+    private WifiManager wifiManager;
     private final BuildInformation buildInformation = new BuildInformation();
     // Time stamp, should be updated on each update of internal data caches
     private long ts = System.currentTimeMillis();
@@ -151,6 +153,12 @@ public class DataProvider extends TelephonyCallback implements LocationListener,
                 onLocationChanged(locationResult.getLocations().get(0));
             }
         };
+
+
+        wifiManager = (WifiManager) ct.getSystemService(Context.WIFI_SERVICE);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
+        context.registerReceiver(wifiScanReceiver, intentFilter);
 
         startLocationUpdates();
         registerWiFiCallback();
@@ -816,6 +824,16 @@ public class DataProvider extends TelephonyCallback implements LocationListener,
         refreshNetworkInterfaceInformation();
         onCellInfoChanged(getAllCellInfo());
 
+        boolean success = wifiManager.startScan();
+
+        if (success) {
+            Log.d(TAG, "refreshAll: WiFi scan started successfully");
+            getWifiInformations();
+        } else {
+            Log.d(TAG, "refreshAll: WiFi scan could not be started");
+        }
+
+
         SignalStrength ss = tm.getSignalStrength();
         // if the phone is not connected and we missed the update on tis we clear our internal cache
         if (ss != null) {
@@ -832,24 +850,39 @@ public class DataProvider extends TelephonyCallback implements LocationListener,
         ts = System.currentTimeMillis();
     }
 
+
+    BroadcastReceiver wifiScanReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context c, Intent intent) {
+            boolean success = intent.getBooleanExtra(
+                    WifiManager.EXTRA_RESULTS_UPDATED, false);
+            if (success) {
+                getWifiInformations();
+            }
+        }
+    };
+
+
+
     /**
      * Return wifi info if available
      *
      * @return Wifi info or null
      */
     @SuppressLint("MissingPermission")
-    public WifiInformation getWifiInformation() {
-        if (wi != null) {
-            WifiManager wifiManager = (WifiManager) ct.getSystemService(Context.WIFI_SERVICE);
-            for (ScanResult r : wifiManager.getScanResults()) {
-                if (Objects.equals(r.BSSID, wi.getBssid())) {
-                    wi.setChannel_width(r.channelWidth);
-                }
-            }
-            return wi;
+    public ArrayList<WifiInformation> getWifiInformations() {
+        boolean success = wifiManager.startScan();
+        if(!success){
+            Log.d(TAG, "getWifiInformations: WiFi scan could not be started");
         } else {
-            return null;
+            Log.d(TAG, "getWifiInformations: WiFi scan started successfully");
+
         }
+        ArrayList<WifiInformation> wifiInformations = new ArrayList<>();
+        for (ScanResult r : wifiManager.getScanResults()) {
+            wifiInformations.add(new WifiInformation(r, System.currentTimeMillis()));
+        }
+        return wifiInformations;
     }
 
     /**

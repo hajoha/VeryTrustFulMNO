@@ -510,12 +510,13 @@ public class DetailFragment extends Fragment {
 
     private CardView get_wifi_card_view() {
         TableLayout tl = new TableLayout(context);
-        WifiInformation wi = dp.getWifiInformation();
-        if (wi != null) {
-            addRows(tl, new String[][]{{getString(R.string.ssid), wi.getSsid()}, {getString(R.string.bssid), wi.getBssid()}, {getString(R.string.rssi), Integer.toString(wi.getRssi())}, {getString(R.string.frequency), Integer.toString(wi.getFrequency())}, {getString(R.string.link_speed), Integer.toString(wi.getLink_speed())}, {getString(R.string.tx_link_speed), Integer.toString(wi.getTx_link_speed())}, {getString(R.string.max_tx_link_speed), Integer.toString(wi.getMax_tx_link_speed())}, {getString(R.string.rx_link_speed), Integer.toString(wi.getRx_link_speed())}, {getString(R.string.max_rx_link_speed), Integer.toString(wi.getMax_rx_link_speed())}, {getString(R.string.standard), wi.getStandardString()}, {getString(R.string.channel_bandwidth), wi.getChannelBandwithString()}, {getString(R.string.wifi_security_type), wi.getSecurityTypeString()}
-            }, true);
-        } else {
-            tl.addView(rowBuilder("No WiFi information available", ""));
+        for (WifiInformation wi: dp.getWifiInformations()){
+            if (wi != null) {
+                addRows(tl, new String[][]{{getString(R.string.ssid), wi.getSsid()}, {getString(R.string.bssid), wi.getBssid()}, {getString(R.string.rssi), Integer.toString(wi.getRssi())}, {getString(R.string.frequency), Integer.toString(wi.getFrequency())}, {getString(R.string.link_speed), Integer.toString(wi.getLink_speed())}, {getString(R.string.tx_link_speed), Integer.toString(wi.getTx_link_speed())}, {getString(R.string.max_tx_link_speed), Integer.toString(wi.getMax_tx_link_speed())}, {getString(R.string.rx_link_speed), Integer.toString(wi.getRx_link_speed())}, {getString(R.string.max_rx_link_speed), Integer.toString(wi.getMax_rx_link_speed())}, {getString(R.string.standard), wi.getStandardString()}, {getString(R.string.channel_bandwidth), wi.getChannelBandwithString()}, {getString(R.string.wifi_security_type), wi.getSecurityTypeString()}
+                }, true);
+            } else {
+                tl.addView(rowBuilder("No WiFi information available", ""));
+            }
         }
         return cardView_from_table_builder("Wifi Information", tl);
     }
