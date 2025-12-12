@@ -32,6 +32,12 @@ public class LoginPasswordFragment extends Fragment {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
+    // VARIANTE 1: Für den Android Emulator
+    private static final String BASE_URL = "http://10.0.2.2:5000";
+
+    // VARIANTE 2: Für echtes Handy im WLAN (Deine aktuelle Linux-IP)
+    //private static final String BASE_URL = "http://192.168.178.126:5000";
+
     private String userEmail; // Variable zum Speichern der E-Mail
 
     @Nullable
@@ -62,31 +68,27 @@ public class LoginPasswordFragment extends Fragment {
             if (password.isEmpty()) {
                 Toast.makeText(requireContext(), "Passwort darf nicht leer sein", Toast.LENGTH_SHORT).show();
             } else {
-                // ------- SERVER-AUFRUF ÜBERSPRINGEN -------
-                // sendLoginRequest(userEmail, password); // Auskommentiert
-
-                // Stattdessen: Erfolg simulieren und direkt zurück navigieren
-                Toast.makeText(requireContext(), "Login successful", Toast.LENGTH_SHORT).show();
-
-                // Zurück zum Einstellungs-Menü
-                NavHostFragment.findNavController(this).popBackStack(R.id.settingsFragment, false);
+                // 1. Simulations-Code ist weg
+                // 2. Echter Server-Aufruf ist aktiv:
+                sendLoginRequest(userEmail, password);
             }
         });
     }
-
-    // Die gesamte OkHttp-Logik (sendLoginRequest, handleResponse, handleError)
-    // wird hierher verschoben und bleibt wie von uns erstellt.
 
     private void sendLoginRequest(String email, String password) {
         executor.execute(() -> {
             try {
                 OkHttpClient client = new OkHttpClient();
+
+                // JSON erstellen
                 String json = "{\"email\": \"" + email + "\", \"password\": \"" + password + "\"}";
                 MediaType JSON = MediaType.get("application/json; charset=utf-8");
                 RequestBody requestBody = RequestBody.create(json, JSON);
 
+                // WICHTIG: Hier steht deine WLAN-IP.
+                // Falls du wieder den Emulator auf dem PC nutzt, nimm: http://10.0.2.2:5000/api/v1/sync-login
                 Request request = new Request.Builder()
-                        .url("https://unser-sicherer-server.de/api/v1/sync-login")
+                        .url(BASE_URL + "/api/v1/sync-login") // Hier wird die Variable genutzt
                         .post(requestBody)
                         .build();
 
@@ -106,10 +108,10 @@ public class LoginPasswordFragment extends Fragment {
             }
             if (response.isSuccessful()) {
                 Toast.makeText(requireContext(), "Sync erfolgreich aktiviert!", Toast.LENGTH_LONG).show();
-                // Nach Erfolg zurück zum Einstellungs-Menü
+                // Erst JETZT, nach Erfolg, springen wir zurück
                 NavHostFragment.findNavController(this).popBackStack(R.id.settingsFragment, false);
             } else {
-                Toast.makeText(requireContext(), "Fehler: " + response.message(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Server-Fehler: " + response.message(), Toast.LENGTH_SHORT).show();
             }
             response.close();
         });
@@ -120,7 +122,8 @@ public class LoginPasswordFragment extends Fragment {
             if (!isAdded() || getContext() == null) {
                 return;
             }
-            Toast.makeText(requireContext(), "Netzwerkfehler: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            // Fehler anzeigen (z.B. wenn der Server aus ist)
+            Toast.makeText(requireContext(), "Verbindungsfehler: " + e.getMessage(), Toast.LENGTH_LONG).show();
         });
     }
 

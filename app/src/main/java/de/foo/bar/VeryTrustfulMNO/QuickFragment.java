@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textview.MaterialTextView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -380,11 +381,13 @@ public class QuickFragment extends Fragment {
                     neighborCells.forEach(cellInformation -> addCellInformationToView(cellInformation));
                 }
             }
-            WifiInformation wi = dp.getWifiInformation();
-            if (wi != null) {
-                addWiFiInformationToView(wi);
+            ArrayList<WifiInformation> wi = dp.getWifiInformations();
+            for (WifiInformation wifiInformation : wi) {
+                if (wifiInformation != null) {
+                    addWiFiInformationToView(wifiInformation);
+                }
             }
-            updateUIHandler.postDelayed(updateUI, 500);
+            updateUIHandler.postDelayed(updateUI, 5000);
         }
     };
 
