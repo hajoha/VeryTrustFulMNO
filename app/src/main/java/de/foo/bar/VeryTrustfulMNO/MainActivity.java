@@ -532,6 +532,7 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
             case R.id.btn_call:
                 navController.navigate(R.id.callFragment);
                 break;
+
             case R.id.btn_wifi_call:
                 navController.navigate(R.id.wificallFragment);
                 break;
