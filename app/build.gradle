@@ -57,7 +57,7 @@ android {
     compileSdk 36
 
     defaultConfig {
-        applicationId "de.fraunhofer.fokus.OpenMobileNetworkToolkit"
+        applicationId "de.foo.bar.VeryTrustfulMNO"
         minSdk 31
         targetSdk 36
         versionCode 6
@@ -74,6 +74,13 @@ android {
         }
 
     }
+
+    //Elias: ADD View Binding
+    buildFeatures {
+        viewBinding true
+        buildConfig = true
+    }
+
 
     buildTypes {
         release {
@@ -113,12 +120,12 @@ spdxSbom {
         register("release") {
             configurations = ['releaseRuntimeClasspath']
             scm {
-                uri.set("https://github.com/omnt/OpenMobileNetworkToolkit")
+                uri.set("https://github.com/omnt/VeryTrustfulMNO")
                 revision.set("0.6")
             }
             document {
-                name.set("OpenMobileNetworkToolkit")
-                namespace.set("de.fraunhofer.fokus.OpenMobileNetworkToolkit")
+                name.set("VeryTrustfulMNO")
+                namespace.set("de.foo.bar.VeryTrustfulMNO")
                 creator.set("Person: NGNI")
                 packageSupplier.set("Organization: Fraunhofer FOKUS NGNI")
             }
@@ -174,6 +181,8 @@ dependencies {
     implementation "androidx.compose.material3:material3:1.3.2"
     implementation "com.squareup.moshi:moshi:1.15.2"
     implementation "com.squareup.moshi:moshi-adapters:1.8.0"
+    //Elias: Add Http Dependency for Credential Transport
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 }
 
 configurations.implementation {

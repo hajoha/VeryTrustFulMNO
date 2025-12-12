@@ -48,7 +48,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OpenMobileNetworkToolkit"
+        android:theme="@style/Theme.VeryTrustfulMNO"
         android:usesCleartextTraffic="true">
         <service
             android:name=".Iperf3.Service.Executor.Iperf3ServiceWorkerOne"
@@ -108,7 +108,7 @@
 
 
         <service
-            android:name="de.foo.bar.VeryTrustfulMNO.OpenMobileNetworkToolkit"
+            android:name="de.foo.bar.VeryTrustfulMNO.VeryTrustfulMNO"
             android:enabled="true"
             android:exported="true"
             android:label="@string/service_name"
@@ -129,15 +129,6 @@
         <service
             android:name="de.foo.bar.VeryTrustfulMNO.NotificationService"
             android:foregroundServiceType="location" />
-        <service
-            android:name="de.foo.bar.VeryTrustfulMNO.NotificationListener"
-            android:exported="true"
-            android:label="@string/service_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
             android:foregroundServiceType="specialUse">
@@ -163,7 +154,7 @@
             android:name="de.foo.bar.VeryTrustfulMNO.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan"
-            android.theme="@style/Theme.OpenMobileNetworkToolkit.NoActionBar">
+            android:theme="@style/Theme.VeryTrustfulMNO.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

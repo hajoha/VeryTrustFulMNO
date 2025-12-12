@@ -16,8 +16,8 @@ To sign the debug apks used for development
 
 You can also manually re-sign the downloaded .apk file using [apksigner](https://developer.android.com/tools/).
 ```shell
-apksigner sign --ks my.keystore OpenMobileNetworkToolkit.apk
+apksigner sign --ks my.keystore VeryTrustfulMNO.apk
 ```
 where my.keystore is your java keystore. 
 
-[Home](OpenMobileNetworkToolkit.md)
+[Home](VeryTrustfulMNO.md)
