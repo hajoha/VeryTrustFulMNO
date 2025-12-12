@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_callFragment2"
             app:destination="@id/callFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_addProfileInfoFragment"
+            app:destination="@id/addProfileInfoFragment" />
 
     </fragment>
 
@@ -213,11 +216,12 @@
             app:destination="@id/HomeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/wificallFragment"
-        android:name="de.foo.bar.VeryTrustfulMNO.WifiCallFragment"
-        android:label="fragment_wifi_call" >
+        android:id="@+id/addProfileInfoFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.WifiScanner.AddProfileInfoFragment"
+        android:label="AddProfileInfoFragment"
+        tools:layout="@layout/fragment_add_profile_info">
         <action
-            android:id="@+id/action_callFragment_to_HomeFragment2"
+            android:id="@+id/action_addProfileInfoFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
 

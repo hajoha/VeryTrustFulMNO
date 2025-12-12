@@ -373,6 +373,13 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
             Log.d(TAG, "Got WIFI_STATE Permission");
         }
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            Log.d(TAG, "Requesting CAMERA Permission");
+            permissions.add(Manifest.permission.CAMERA);
+        } else {
+            Log.d(TAG, "Got CAMERA Permission");
+        }
+
         // on android 13 an newer we need to ask for permission to show the notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -492,6 +499,9 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
             case R.id.slicingSetup:
                 navController.navigate(R.id.fragment_slicingsetup);
                 break;
+            case R.id.add_profile_info:
+                navController.navigate(R.id.addProfileInfoFragment);
+                break;
             case R.id.iperf3:
                 navController.navigate(R.id.fragment_iperf3_input);
                 break;
@@ -522,6 +532,7 @@ public class MainActivity extends AppCompatActivity implements PreferenceFragmen
             case R.id.btn_call:
                 navController.navigate(R.id.callFragment);
                 break;
+
             case R.id.btn_wifi_call:
                 navController.navigate(R.id.wificallFragment);
                 break;
