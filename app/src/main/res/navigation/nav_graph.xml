@@ -253,4 +253,12 @@ tools:layout="@layout/fragment_login_password" >
     app:argType="string" />
 </fragment>
 
+    <fragment
+        android:id="@+id/wificallFragment"
+        android:name="de.foo.bar.VeryTrustfulMNO.WifiCallFragment"
+        android:label="fragment_wifi_call" >
+        <action
+            android:id="@+id/action_callFragment_to_HomeFragment2"
+            app:destination="@id/HomeFragment" />
+    </fragment>
 </navigation>
